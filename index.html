@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peludos Factory — Pijamas, mantas y más con la cara de tu mascota</title>
+<meta name="description" content="Peludos Factory — Pijamas, mantas, polos y tote bags personalizadas con la cara de tu mascota. Hechos en Perú. Envíos a todo el país.">
+<meta property="og:title" content="Peludos Factory — Personaliza con la cara de tu peludo">
+<meta property="og:description" content="Pijamas, mantas, polos y tote bags con la carita de tu mascota. Hechos en Perú 🇵🇪">
+<meta property="og:image" content="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?w=1200&auto=format&fit=crop">
+<meta property="og:url" content="https://peludosfactory.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/variables.css">
+<link rel="stylesheet" href="styles/layout.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/responsive.css">
+<style>
+/* HERO */
+#hero{padding-block:80px 60px;overflow:hidden;}
+#hero .container{display:flex;align-items:center;gap:60px;min-height:calc(100vh - 80px);}
+.hero-content{flex:1;display:flex;flex-direction:column;gap:28px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--crema-oscuro);color:var(--naranja-marca);padding:8px 18px;border-radius:var(--radius-pill);font-weight:700;font-size:14px;width:fit-content;}
+.hero-title{font-family:var(--font-display);font-weight:900;font-size:clamp(42px,5.5vw,76px);line-height:1.05;letter-spacing:-0.02em;color:var(--marron);}
+.hero-title .highlight{color:var(--naranja-marca);position:relative;display:inline-block;}
+.hero-title .highlight svg{position:absolute;bottom:-8px;left:0;width:100%;height:auto;pointer-events:none;}
+.hero-sub{font-size:clamp(16px,1.2vw,19px);color:var(--marron-claro);max-width:520px;line-height:1.65;}
+.hero-btn-group{display:flex;gap:16px;flex-wrap:wrap;}
+.hero-social-proof{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--marron-medio);}
+.hero-stars{color:var(--amarillo-estrella);font-size:18px;letter-spacing:2px;}
+.hero-visual{flex:1;position:relative;display:flex;justify-content:center;align-items:center;}
+.hero-img-wrap{position:relative;width:100%;max-width:480px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--sombra-fuerte);transform:rotate(-2deg);transition:transform 0.4s ease;}
+.hero-img-wrap:hover{transform:rotate(0deg);}
+.hero-img-wrap img{width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover;}
+.sticker-rotatorio{position:absolute;bottom:-16px;right:-16px;z-index:10;}
+.hero-paws{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
+/* NAVBAR active */
+.navbar-link.active{color:var(--naranja-marca);}
+.navbar-link.active::after{transform:scaleX(1);}
+/* SECTION intro lines */
+.section-eyebrow{display:block;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--naranja-marca);margin-bottom:10px;}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V41XZ55W4S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V41XZ55W4S');
+</script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SECCIÓN 1 — NAVBAR
+════════════════════════════════════════════ -->
+<header id="navbar" role="banner">
+  <div class="container">
+    <nav class="navbar-inner" aria-label="Navegación principal">
+      <a href="#inicio" class="navbar-logo" aria-label="Peludos Factory inicio">
+        <span class="navbar-logo-icon" aria-hidden="true">🐾</span>
+        <span class="navbar-logo-text">Peludos Factory</span>
+      </a>
+      <ul class="navbar-menu" role="list">
+        <li><a href="#inicio"   class="navbar-link" data-section="inicio">Inicio</a></li>
+        <li><a href="#productos" class="navbar-link" data-section="productos">Productos</a></li>
+        <li><a href="#como-funciona" class="navbar-link" data-section="como-funciona">Cómo funciona</a></li>
+        <li><a href="#pedido"   class="navbar-link" data-section="pedido">Configurador</a></li>
+        <li><a href="#contacto" class="navbar-link" data-section="contacto">Contacto</a></li>
+      </ul>
+      <div class="navbar-cta">
+        <a href="#pedido" class="btn btn-primary btn-sm">🛍️ Hacer pedido</a>
+      </div>
+      <button class="navbar-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar-drawer">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Drawer mobile -->
+<div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+<nav class="navbar-drawer" id="navbar-drawer" aria-label="Menú móvil">
+  <button class="drawer-close" id="drawer-close" aria-label="Cerrar menú">✕</button>
+  <a href="#inicio"        class="drawer-link">🏠 Inicio</a>
+  <a href="#productos"     class="drawer-link">🛒 Productos</a>
+  <a href="#como-funciona" class="drawer-link">✨ Cómo funciona</a>
+  <a href="#pedido"        class="drawer-link">✏️ Configurador</a>
+  <a href="#contacto"      class="drawer-link">💬 Contacto</a>
+  <div style="margin-top:auto;padding-top:24px;">
+    <a href="#pedido" class="btn btn-primary btn-full">🛍️ Hacer pedido</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     SECCIÓN 2 — HERO
+════════════════════════════════════════════ -->
+<section id="inicio" class="section--crema" style="padding-block:0;">
+  <div id="hero">
+    <div class="container">
+      <div class="hero-content fade-in-up">
+        <span class="hero-badge">🇵🇪 Hecho con amor en Perú</span>
+        <h1 class="hero-title">
+          Tu <span class="highlight">peludo,<svg viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 9 C40 3, 100 1, 198 6" stroke="#E8721C" stroke-width="4" stroke-linecap="round"/></svg></span><br>en cada abrazo.
+        </h1>
+        <p class="hero-sub">Pijamas, mantas, polos y tote bags personalizados con la carita de tu mascota. Diseñados a tu medida, hechos para durar y pensados para enamorar.</p>
+        <div class="hero-btn-group">
+          <a href="#productos" class="btn btn-primary">Ver productos →</a>
+          <a href="https://wa.me/51991858390?text=Hola%20Peludos%20Factory,%20quiero%20más%20info." target="_blank" rel="noopener" class="btn btn-whatsapp">💬 Hablar por WhatsApp</a>
+        </div>
+        <div class="hero-social-proof">
+          <span class="hero-stars">⭐⭐⭐⭐⭐</span>
+          <span>+<span data-counter="500" data-suffix=" peludos felices">500 peludos felices</span></span>
+        </div>
+      </div>
+      <div class="hero-visual fade-in-up" style="transition-delay:0.2s;">
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?w=800&auto=format&fit=crop&q=80" alt="Perro feliz con pijama personalizada de Peludos Factory" loading="eager" width="480" height="600">
+        </div>
+        <div class="sticker-rotatorio" style="font-size:12px;line-height:1.3;" aria-hidden="true">🎁 Tote bag<br>GRATIS con<br>tu pijama</div>
+        <div class="hero-paws" aria-hidden="true">
+          <span class="paw-float" style="top:10%;left:-8%;">🐾</span>
+          <span class="paw-float" style="top:60%;left:-12%;">🐾</span>
+          <span class="paw-float" style="top:20%;right:-5%;">🐾</span>
+          <span class="paw-float" style="bottom:15%;right:-8%;">🐾</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECCIÓN 3 — BANNER DE BENEFICIOS
+════════════════════════════════════════════ -->
+<section class="benefits-bar" aria-label="Nuestros beneficios">
+  <div class="container">
+    <div class="benefits-grid">
+      <div class="benefit-item fade-in-up">
+        <span class="benefit-item__icon" aria-hidden="true">🚚</span>
+        <strong class="benefit-item__title">Envíos a todo el Perú</strong>
+        <span class="benefit-item__desc">Olva, Shalom y más</span>
+      </div>
+      <div class="benefit-item fade-in-up">
+        <span class="benefit-item__icon" aria-hidden="true">💳</span>
+        <strong class="benefit-item__title">Paga 50% al pedir</strong>
+        <span class="benefit-item__desc">y 50% al recibir</span>
+      </div>
+      <div class="benefit-item fade-in-up">
+        <span class="benefit-item__icon" aria-hidden="true">✏️</span>
+        <strong class="benefit-item__title">Diseño 100% personalizado</strong>
+        <span class="benefit-item__desc">Cada pieza es única</span>
+      </div>
+      <div class="benefit-item fade-in-up">
+        <span class="benefit-item__icon" aria-hidden="true">🎁</span>
+        <strong class="benefit-item__title">Tote bag de regalo</strong>
+        <span class="benefit-item__desc">Con cada pijama</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECCIÓN 4 — PRODUCTOS
+════════════════════════════════════════════ -->
+<section id="productos" class="section section--crema">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="section-eyebrow">Nuestro catálogo</span>
+      <h2 class="heading-section">Nuestra línea peluda</h2>
+      <p>Cuatro productos. Infinitas formas de mostrar tu amor.</p>
+    </div>
+    <div class="products-grid" style="display:grid;gap:32px;">
+
+      <!-- CARD 1: Pijama -->
+      <article class="product-card fade-in-up" onclick="window.location.href='#pedido'" role="button" tabindex="0" aria-label="Ver pijama personalizada" onkeydown="if(event.key==='Enter')window.location.href='#pedido'">
+        <div class="product-card__img-wrap">
+          <img class="product-card__img" src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&auto=format&fit=crop&q=80" alt="Pijama personalizada con cara de mascota" loading="lazy" width="600" height="450">
+          <div class="product-card__badge">
+            <span class="badge badge--orange">⭐ MÁS VENDIDO</span>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <h3 class="product-card__name">Pijama personalizada</h3>
+          <p class="product-card__desc">La estrella de la casa. Tu mascota estampada en una pijama supercómoda. Tú eliges el modelo, los colores y el patrón.</p>
+          <div class="product-card__price">Desde S/ 95</div>
+          <div class="product-card__extra">🎁 Incluye tote bag personalizada de regalo</div>
+        </div>
+        <div class="product-card__footer">
+          <a href="#pedido" class="btn btn-primary btn-full" onclick="event.stopPropagation();seleccionarProducto('pijama');">Personalizar →</a>
+        </div>
+      </article>
+
+      <!-- CARD 2: Manta -->
+      <article class="product-card fade-in-up" onclick="window.location.href='#pedido'" role="button" tabindex="0" aria-label="Ver manta personalizada" onkeydown="if(event.key==='Enter')window.location.href='#pedido'">
+        <div class="product-card__img-wrap">
+          <img class="product-card__img" src="https://images.unsplash.com/photo-1549480017-d76466a4b7e8?w=600&auto=format&fit=crop&q=80" alt="Manta personalizada con cara de mascota" loading="lazy" width="600" height="450">
+          <div class="product-card__badge">
+            <span class="badge badge--green">🎀 REGALO IDEAL</span>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <h3 class="product-card__name">Manta personalizada</h3>
+          <p class="product-card__desc">La manta más abrazable del mundo. Felpa supersuave con la carita de tu peludo a tamaño completo.</p>
+          <div class="product-card__price">Desde S/ 60</div>
+          <div class="product-card__extra">💝 Perfecta para regalo</div>
+        </div>
+        <div class="product-card__footer">
+          <a href="#pedido" class="btn btn-primary btn-full" onclick="event.stopPropagation();seleccionarProducto('manta');">Personalizar →</a>
+        </div>
+      </article>
+
+      <!-- CARD 3: Polo -->
+      <article class="product-card fade-in-up" onclick="window.location.href='#pedido'" role="button" tabindex="0" aria-label="Ver polo personalizado" onkeydown="if(event.key==='Enter')window.location.href='#pedido'">
+        <div class="product-card__img-wrap">
+          <img class="product-card__img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&auto=format&fit=crop&q=80" alt="Polo de algodón personalizado con mascota" loading="lazy" width="600" height="450">
+          <div class="product-card__badge">
+            <span class="badge badge--gold">✨ NUEVO</span>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <h3 class="product-card__name">Polo de algodón personalizado</h3>
+          <p class="product-card__desc">100% algodón, corte semi oversized, súper fresco. Para llevar a tu peludo a todos lados.</p>
+          <div class="product-card__price">S/ 60</div>
+          <div class="product-card__extra">📐 Tallas XS al XL</div>
+        </div>
+        <div class="product-card__footer">
+          <a href="#pedido" class="btn btn-primary btn-full" onclick="event.stopPropagation();seleccionarProducto('polo');">Personalizar →</a>
+        </div>
+      </article>
+
+      <!-- CARD 4: Tote bag -->
+      <article class="product-card fade-in-up" onclick="window.location.href='#pedido'" role="button" tabindex="0" aria-label="Ver tote bag personalizada" onkeydown="if(event.key==='Enter')window.location.href='#pedido'">
+        <div class="product-card__img-wrap">
+          <img class="product-card__img" src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80" alt="Tote bag personalizada con cara de mascota" loading="lazy" width="600" height="450">
+          <div class="product-card__badge">
+            <span class="badge badge--orange">🛍️ COMBO</span>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <h3 class="product-card__name">Tote bag personalizada</h3>
+          <p class="product-card__desc">Bolsa de tela con forro interno y bolsillo. Resistente, espaciosa y única.</p>
+          <div class="product-card__price">S/ 45</div>
+          <div class="product-card__extra">👜 Forro + bolsillo interno</div>
+        </div>
+        <div class="product-card__footer">
+          <a href="#pedido" class="btn btn-primary btn-full" onclick="event.stopPropagation();seleccionarProducto('totebag');">Personalizar →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECCIÓN 5 — CÓMO FUNCIONA
+════════════════════════════════════════════ -->
+<section id="como-funciona" class="section section--crema-oscuro">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="section-eyebrow">Proceso</span>
+      <h2 class="heading-section">Tu pedido en 4 pasos súper fáciles</h2>
+      <p>Sin complicaciones. Sin sorpresas. Sin estrés.</p>
+    </div>
+    <div class="steps-grid" style="position:relative;">
+      <!-- SVG conector desktop -->
+      <svg class="steps-connector" viewBox="0 0 800 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none">
+        <line x1="0" y1="4" x2="800" y2="4" stroke="#E8721C" stroke-width="2" stroke-dasharray="8 6" stroke-linecap="round"/>
+      </svg>
+      <div class="step-card fade-in-up">
+        <div class="step-num-circle">1</div>
+        <div class="step-emoji" aria-hidden="true">🐾</div>
+        <h3 class="step-title">Elige tu producto</h3>
+        <p class="step-desc">Selecciona el producto que más te gusta y dinos los detalles: modelo, talla, colores.</p>
+      </div>
+      <div class="step-card fade-in-up">
+        <div class="step-num-circle">2</div>
+        <div class="step-emoji" aria-hidden="true">📸</div>
+        <h3 class="step-title">Sube la foto de tu peludo</h3>
+        <p class="step-desc">Adjunta una foto clara de tu mascota (ojalá con buena luz y de frente). Nosotros le sacamos su mejor versión.</p>
+      </div>
+      <div class="step-card fade-in-up">
+        <div class="step-num-circle">3</div>
+        <div class="step-emoji" aria-hidden="true">💳</div>
+        <h3 class="step-title">Confirma con el 50%</h3>
+        <p class="step-desc">Te enviamos la previsualización del diseño. Cuando le des el OK, abonas el 50% por Yape o transferencia.</p>
+      </div>
+      <div class="step-card fade-in-up">
+        <div class="step-num-circle">4</div>
+        <div class="step-emoji" aria-hidden="true">📦</div>
+        <h3 class="step-title">Recibe tu pedido</h3>
+        <p class="step-desc">En 4 a 7 días hábiles tu pedido sale de nuestro taller a tu puerta. Pagas el 50% restante al recibirlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECCIÓN 6 — CONFIGURADOR DE PEDIDO
+════════════════════════════════════════════ -->
+<section id="pedido" class="section section--crema">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="section-eyebrow">Configura tu pedido</span>
+      <h2 class="heading-section">Arma tu pedido</h2>
+      <p>Personaliza cada detalle. Te lo enviamos por WhatsApp para confirmar y te llega a casa en días.</p>
+    </div>
+
+    <div class="configurador-layout" style="display:flex;gap:40px;align-items:flex-start;">
+
+      <!-- ── COLUMNA IZQUIERDA: Resumen sticky ── -->
+      <aside class="configurador-resumen fade-in-up" style="flex:0 0 340px;">
+        <div class="resumen-card">
+          <div class="resumen-card__title">📋 Tu pedido</div>
+          <img id="res-foto" class="resumen-foto" src="" alt="Foto de tu mascota">
+          <div class="resumen-item">
+            <span class="resumen-item__label">Producto</span>
+            <span class="resumen-item__value" id="res-nombre-producto">—</span>
+          </div>
+          <div class="resumen-item">
+            <span class="resumen-item__label">Variante</span>
+            <span class="resumen-item__value" id="res-variante">—</span>
+          </div>
+          <div class="resumen-item" id="fila-talla">
+            <span class="resumen-item__label">Talla</span>
+            <span class="resumen-item__value" id="res-talla">—</span>
+          </div>
+          <div class="resumen-item">
+            <span class="resumen-item__label">Cantidad</span>
+            <span class="resumen-item__value" id="res-cantidad">1</span>
+          </div>
+          <div class="resumen-item">
+            <span class="resumen-item__label">Precio unit.</span>
+            <span class="resumen-item__value" id="res-precio-unit">—</span>
+          </div>
+          <div class="resumen-total">
+            <span class="resumen-total__label">Total</span>
+            <span class="resumen-total__price" id="res-precio-total">—</span>
+          </div>
+          <div class="resumen-aviso">💡 Pagas 50% al confirmar y 50% al recibir</div>
+          <button id="btn-confirmar-wa" class="btn btn-whatsapp btn-full" type="button">📲 Confirmar por WhatsApp</button>
+        </div>
+      </aside>
+
+      <!-- ── COLUMNA DERECHA: Formulario ── -->
+      <div class="configurador-form fade-in-up" style="flex:1;">
+
+        <!-- PASO 1: Producto -->
+        <div class="config-step">
+          <div class="config-step__header">
+            <div class="config-step__num">1</div>
+            <h3 class="config-step__title">Elige tu producto</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;" id="producto-options">
+            <div class="product-select-card">
+              <input type="radio" name="producto" id="prod-pijama" value="pijama" onchange="seleccionarProducto('pijama')">
+              <label for="prod-pijama">
+                <span class="product-select-card__emoji">😴</span>
+                <div class="product-select-card__info">
+                  <div class="product-select-card__name">Pijama personalizada <span class="badge badge--orange" style="margin-left:6px;">MÁS VENDIDO</span></div>
+                  <div class="product-select-card__price">Desde S/ 95</div>
+                </div>
+              </label>
+            </div>
+            <div class="product-select-card">
+              <input type="radio" name="producto" id="prod-manta" value="manta" onchange="seleccionarProducto('manta')">
+              <label for="prod-manta">
+                <span class="product-select-card__emoji">🛋️</span>
+                <div class="product-select-card__info">
+                  <div class="product-select-card__name">Manta personalizada</div>
+                  <div class="product-select-card__price">Desde S/ 60</div>
+                </div>
+              </label>
+            </div>
+            <div class="product-select-card">
+              <input type="radio" name="producto" id="prod-polo" value="polo" onchange="seleccionarProducto('polo')">
+              <label for="prod-polo">
+                <span class="product-select-card__emoji">👕</span>
+                <div class="product-select-card__info">
+                  <div class="product-select-card__name">Polo de algodón</div>
+                  <div class="product-select-card__price">S/ 60</div>
+                </div>
+              </label>
+            </div>
+            <div class="product-select-card">
+              <input type="radio" name="producto" id="prod-totebag" value="totebag" onchange="seleccionarProducto('totebag')">
+              <label for="prod-totebag">
+                <span class="product-select-card__emoji">🛍️</span>
+                <div class="product-select-card__info">
+                  <div class="product-select-card__name">Tote bag personalizada</div>
+                  <div class="product-select-card__price">S/ 45</div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <span class="form-error error-msg" id="error-producto" style="margin-top:8px;display:none;"></span>
+        </div>
+
+        <!-- PASO 2: Variante y Talla -->
+        <div class="config-step hidden" id="paso2-wrapper">
+          <div class="config-step__header">
+            <div class="config-step__num">2</div>
+            <h3 class="config-step__title">Elige el modelo y talla</h3>
+          </div>
+          <div id="paso2-variantes" class="hidden" style="margin-bottom:20px;">
+            <p class="form-label" style="margin-bottom:10px;">Modelo</p>
+            <div class="radio-pill-group" id="variantes-container"></div>
+          </div>
+          <div id="paso2-tallas" class="hidden">
+            <p class="form-label" style="margin-bottom:10px;">Talla</p>
+            <div class="radio-pill-group" id="tallas-container"></div>
+          </div>
+        </div>
+
+        <!-- PASO 3: Personalización -->
+        <div class="config-step">
+          <div class="config-step__header">
+            <div class="config-step__num">3</div>
+            <h3 class="config-step__title">Personalización</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:18px;">
+            <div class="form-group">
+              <label class="form-label" for="input-nombre-mascota">Nombre de tu mascota <span class="required">*</span></label>
+              <input class="form-input" type="text" id="input-nombre-mascota" placeholder="Ej: Toby, Luna, Mochi..." autocomplete="off">
+              <span class="form-error" id="error-nombre-mascota"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="select-tipo-mascota">Tipo de mascota</label>
+              <select class="form-select" id="select-tipo-mascota">
+                <option value="">Selecciona...</option>
+                <option value="Perro">🐶 Perro</option>
+                <option value="Gato">🐱 Gato</option>
+                <option value="Otro">🐾 Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="textarea-notas-diseno">Colores favoritos / preferencias de diseño</label>
+              <textarea class="form-textarea" id="textarea-notas-diseno" placeholder="Ej: fondo azul claro con estrellas, o lo que quieras ✨" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">📸 Foto de tu peludo</label>
+              <div class="file-input-wrap">
+                <label class="file-input-label" for="foto-input">
+                  <span>📷 Subir foto (JPG, PNG, etc.)</span>
+                </label>
+                <input class="file-input-hidden" type="file" id="foto-input" accept="image/*">
+              </div>
+              <img id="foto-preview" class="file-preview" src="" alt="Preview foto mascota">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input-cantidad">Cantidad</label>
+              <input class="form-input" type="number" id="input-cantidad" value="1" min="1" max="20" style="max-width:120px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 4: Datos del cliente -->
+        <div class="config-step">
+          <div class="config-step__header">
+            <div class="config-step__num">4</div>
+            <h3 class="config-step__title">Tus datos</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:18px;">
+            <div class="form-group">
+              <label class="form-label" for="input-nombre-cliente">Nombre completo <span class="required">*</span></label>
+              <input class="form-input" type="text" id="input-nombre-cliente" placeholder="Tu nombre y apellido" autocomplete="name">
+              <span class="form-error" id="error-nombre-cliente"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input-telefono">Teléfono / WhatsApp <span class="required">*</span></label>
+              <input class="form-input" type="tel" id="input-telefono" placeholder="9 dígitos, ej: 987654321" autocomplete="tel" maxlength="9">
+              <span class="form-error" id="error-telefono"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input-email">Email (opcional)</label>
+              <input class="form-input" type="email" id="input-email" placeholder="tu@correo.com" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input-ciudad">Distrito o ciudad <span class="required">*</span></label>
+              <input class="form-input" type="text" id="input-ciudad" placeholder="Ej: Miraflores, Trujillo, Arequipa..." autocomplete="address-level2">
+              <span class="form-error" id="error-ciudad"></span>
+            </div>
+            <div class="form-group">
+              <span class="form-label">Tipo de envío <span class="required">*</span></span>
+              <div class="radio-pill-group" style="margin-top:8px;">
+                <div class="radio-pill"><input type="radio" name="tipo-envio" id="envio-lima" value="Delivery Lima (moto)"><label for="envio-lima">🛵 Delivery Lima</label></div>
+                <div class="radio-pill"><input type="radio" name="tipo-envio" id="envio-recojo" value="Recojo en tienda"><label for="envio-recojo">🏪 Recojo en tienda</label></div>
+                <div class="radio-pill"><input type="radio" name="tipo-envio" id="envio-shalom" value="Envío Shalom"><label for="envio-shalom">📦 Shalom</label></div>
+                <div class="radio-pill"><input type="radio" name="tipo-envio" id="envio-olva" value="Envío Olva"><label for="envio-olva">📦 Olva</label></div>
+              </div>
+              <span class="form-error error-msg" id="error-envio" style="display:none;"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="textarea-notas-adicionales">Notas adicionales (opcional)</label>
+              <textarea class="form-textarea" id="textarea-notas-adicionales" placeholder="¿Algo más que debamos saber?" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTÓN FINAL -->
+        <button id="btn-confirmar-wa2" class="btn btn-whatsapp btn-full" type="button" style="font-size:18px;padding:18px;">
+          📲 Confirmar pedido por WhatsApp
+        </button>
+        <p style="text-align:center;margin-top:12px;font-size:13px;color:var(--marron-claro);">Al confirmar, serás redirigido a WhatsApp con todos los detalles de tu pedido.</p>
+
+      </div><!-- /configurador-form -->
+    </div><!-- /configurador-layout -->
+  </div>
+</section>
+
+<!-- S7: GALERÍA -->
+<section id="galeria" class="section section--crema-oscuro">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="section-eyebrow">Galería</span>
+      <h2 class="heading-section">Galería de peludos felices</h2>
+      <p>Estos son algunos de los amores que hemos vestido.</p>
+    </div>
+    <div class="galeria-grid fade-in-up">
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&auto=format&fit=crop&q=80" alt="Peludo feliz" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&auto=format&fit=crop&q=80" alt="Perro sonriente" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=600&auto=format&fit=crop&q=80" alt="Gato adorable" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&auto=format&fit=crop&q=80" alt="Perro feliz" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&auto=format&fit=crop&q=80" alt="Gatito curioso" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&auto=format&fit=crop&q=80" alt="Dos perros" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=600&auto=format&fit=crop&q=80" alt="Gato relajado" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&auto=format&fit=crop&q=80" alt="Perro con ropa" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=600&auto=format&fit=crop&q=80" alt="Perro golden" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&auto=format&fit=crop&q=80" alt="Perro jugando" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&auto=format&fit=crop&q=80" alt="Perro en exterior" loading="lazy"></div>
+      <div class="galeria-item"><img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?w=600&auto=format&fit=crop&q=80" alt="Gatito tierno" loading="lazy"></div>
+    </div>
+    <a href="https://instagram.com/peludosfactory" target="_blank" rel="noopener" class="galeria-link fade-in-up">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      Síguenos en Instagram @peludosfactory →
+    </a>
+  </div>
+</section>
+
+<!-- S8: TESTIMONIOS -->
+<section id="testimonios" class="section section--crema">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="section-eyebrow">Testimonios</span>
+      <h2 class="heading-section">Lo que dicen los pet parents</h2>
+      <p>Porque nada vale más que la palabra de quien ya recibió el suyo.</p>
+    </div>
+    <div class="testimonios-slider-wrap fade-in-up">
+      <div class="testimonios-slider" id="testimonios-slider">
+        <div class="testimonio-card">
+          <img class="testimonio-foto" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="María Fernanda" loading="lazy">
+          <div><div class="testimonio-nombre">María Fernanda</div><div class="testimonio-ciudad">Miraflores, Lima</div></div>
+          <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+          <p class="testimonio-texto">"¡Quedé enamoradísima! La pijama con la cara de mi gata Luna está perfecta. Calidad TOP, atención súper rápida y el detalle de la tote bag de regalo me mató. Ya pedí otra para mi mamá."</p>
+        </div>
+        <div class="testimonio-card">
+          <img class="testimonio-foto" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Diego Ramírez" loading="lazy">
+          <div><div class="testimonio-nombre">Diego Ramírez</div><div class="testimonio-ciudad">Trujillo</div></div>
+          <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+          <p class="testimonio-texto">"Pedí la manta con la cara de mi golden Toby, llegó en 5 días a Trujillo y la calidad es increíble. Mi mamá lloró cuando se la regalé. Recomendadísimo."</p>
+        </div>
+        <div class="testimonio-card">
+          <img class="testimonio-foto" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&auto=format&fit=crop&q=80" alt="Andrea Quispe" loading="lazy">
+          <div><div class="testimonio-nombre">Andrea Quispe</div><div class="testimonio-ciudad">Cusco</div></div>
+          <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+          <p class="testimonio-texto">"Súper recomendado. Te explican todo paso a paso, te mandan la previa antes de imprimir, y la tela del pijama es bien suavecita. Mi pug Frida ahora tiene su propio merch."</p>
+        </div>
+        <div class="testimonio-card">
+          <img class="testimonio-foto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80" alt="Lucía Rojas" loading="lazy">
+          <div><div class="testimonio-nombre">Lucía Rojas</div><div class="testimonio-ciudad">San Isidro, Lima</div></div>
+          <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+          <p class="testimonio-texto">"El polo me encantó. La calidad del estampado es como de tienda grande, no se ha despintado al lavar. Vale cada sol."</p>
+        </div>
+        <div class="testimonio-card">
+          <img class="testimonio-foto" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="Carlos Bustamante" loading="lazy">
+          <div><div class="testimonio-nombre">Carlos Bustamante</div><div class="testimonio-ciudad">Arequipa</div></div>
+          <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+          <p class="testimonio-texto">"Lo pedí para el cumple de mi novia que ama a su gato. Llegó perfecto, la cara del gato es idéntica. Punto y aparte el servicio al cliente."</p>
+        </div>
+      </div>
+      <div class="slider-nav">
+        <button class="slider-btn" id="slider-prev" aria-label="Anterior">←</button>
+        <div class="slider-dots" id="slider-dots"></div>
+        <button class="slider-btn" id="slider-next" aria-label="Siguiente">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S9: FAQ -->
+<section id="faq" class="section section--crema-oscuro">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="heading-section">Preguntas que todos hacen 🤔</h2>
+    </div>
+    <div class="faq-list fade-in-up">
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Cómo funciona el pago del 50%? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">Al confirmar tu pedido pagas el 50% por Yape (991858390) o transferencia. Cuando tu producto está listo te enviamos una foto y tú nos cancelas el 50% restante antes de despacharlo.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Cuánto demora en llegar? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">De 4 a 7 días hábiles desde que confirmas el pedido. Si vives en provincia, súmale 1-3 días extra del courier.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Hacen envíos a todo el Perú? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">¡Sí! Enviamos a todo el país por Shalom u Olva. En Lima ofrecemos delivery propio. También puedes recoger en nuestro punto.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Qué tipo de foto tengo que mandar? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">Una foto clara de tu mascota, con buena luz natural, ojalá de frente y donde se le vea bien la carita. Si no estás segura, mándanosla y te decimos si funciona.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Puedo pedir cambios al diseño? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">¡Por supuesto! Antes de imprimir te enviamos la previsualización por WhatsApp. Tú nos dices si está perfecto o si quieres algún ajuste. Recién imprimimos cuando le das el OK.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Qué métodos de pago aceptan? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">Yape, Plin y transferencia bancaria a BCP/Interbank. No aceptamos pago contraentrega por temas de personalización.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿La pijama incluye realmente una tote bag de regalo? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">¡Sí! Con cualquier pijama te llevas una tote bag personalizada con la misma carita de tu mascota, totalmente gratis. Es nuestra forma de decir gracias.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Puedo pedir varias mascotas en un solo producto? <span class="faq-icon">+</span></button>
+        <div class="faq-respuesta"><div class="faq-respuesta-inner">¡Claro! Avísanos al hacer el pedido cuántas mascotas quieres y te coordinamos el diseño. Es ideal para familias multi-pet.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S10: CTA FINAL -->
+<section id="cta-final" class="cta-final">
+  <div class="container">
+    <h2 class="heading-section fade-in-up">¿Listo para vestir a tu peludo?</h2>
+    <p class="fade-in-up">Empieza tu pedido ahora. Te respondemos en menos de una hora.</p>
+    <a href="#pedido" class="btn btn-cta-final fade-in-up">Hacer mi pedido →</a>
+    <p class="cta-datos fade-in-up">📍 Lima, Perú &nbsp;·&nbsp; 📞 +51 991 858 390</p>
+  </div>
+</section>
+
+<!-- S11: FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">🐾 Peludos Factory</div>
+        <p class="footer-tagline">Hecho con amor en Lima, Perú.<br>Personalizamos con la carita de tu mascota.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/peludosfactory" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://tiktok.com/@peludosfactory" target="_blank" rel="noopener" class="footer-social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.19 8.19 0 0 0 4.79 1.54V6.78a4.85 4.85 0 0 1-1.02-.09z"/></svg>
+          </a>
+          <a href="https://facebook.com/peludosfactory" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/51991858390" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L0 24l6.337-1.513A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.374l-.36-.214-3.732.891.936-3.622-.235-.372A9.818 9.818 0 1 1 12 21.818z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Productos</span>
+        <div class="footer-links">
+          <a href="#productos" class="footer-link">Pijama personalizada</a>
+          <a href="#productos" class="footer-link">Manta personalizada</a>
+          <a href="#productos" class="footer-link">Polo de algodón</a>
+          <a href="#productos" class="footer-link">Tote bag</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Información</span>
+        <div class="footer-links">
+          <a href="#como-funciona" class="footer-link">Cómo funciona</a>
+          <a href="#galeria" class="footer-link">Galería</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Términos</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Contacto</span>
+        <div class="footer-contact-item">📱 <span>WhatsApp: <a href="https://wa.me/51991858390" target="_blank" rel="noopener" class="footer-link" style="display:inline;">991 858 390</a></span></div>
+        <div class="footer-contact-item">📍 <span>Lima, Perú</span></div>
+        <div class="footer-contact-item">🕐 <span>Lun–Sáb: 9am–7pm</span></div>
+        <div style="margin-top:16px;">
+          <a href="#pedido" class="btn btn-primary btn-sm">🛍️ Hacer pedido</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Peludos Factory. Todos los derechos reservados. Hecho con 🧡 en Perú.</div>
+  </div>
+</footer>
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/51991858390?text=Hola%20Peludos%20Factory!" target="_blank" rel="noopener" class="whatsapp-flotante" aria-label="Contáctanos por WhatsApp">
+  <span class="whatsapp-flotante-tooltip">¿Te ayudo? 🐾</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L0 24l6.337-1.513A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.374l-.36-.214-3.732.891.936-3.622-.235-.372A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+
+<!-- POPUP OFERTA -->
+<div class="popup-overlay" id="popup-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="popup-title-text">
+  <div class="popup-modal">
+    <button class="popup-close" id="popup-cerrar" aria-label="Cerrar popup">✕</button>
+    <span class="popup-emoji" aria-hidden="true">🎁</span>
+    <h2 class="popup-title" id="popup-title-text">¡Espera, peludo amigo!</h2>
+    <p class="popup-texto">Por ser tu primera vez, muéstranos esta pantalla en tu pedido y te regalamos un <strong>sticker personalizado de tu mascota</strong>.</p>
+    <button id="popup-ir-pedido" class="btn btn-primary btn-full" style="margin-bottom:12px;">Quiero mi sticker 🐾</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/supabase-client.js"></script>
+<script src="scripts/configurador.js"></script>
+<script src="scripts/animaciones.js"></script>
+<script src="scripts/popup.js"></script>
+</body>
+</html>
+

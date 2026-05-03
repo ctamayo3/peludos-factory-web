@@ -1,0 +1,172 @@
+/* ============================================
+   PELUDOS FACTORY — variables.css
+   Sistema de diseño: tokens + estilos base
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ─── PRIMARIOS ─── */
+  --naranja-marca:  #E8721C;
+  --naranja-oscuro: #C45D10;
+  --naranja-claro:  #FFB07A;
+
+  /* ─── NEUTROS CÁLIDOS ─── */
+  --crema:        #FAF6F1;
+  --crema-oscuro: #F2EAE0;
+  --blanco:       #FFFFFF;
+
+  /* ─── OSCUROS ─── */
+  --marron:       #2C1810;
+  --marron-medio: #5A3D2B;
+  --marron-claro: #8B6F5C;
+
+  /* ─── SISTEMA ─── */
+  --verde-exito:    #4A9D5F;
+  --verde-whatsapp: #25D366;
+  --rojo-alerta:    #D64545;
+  --amarillo-estrella: #F5B800;
+
+  /* ─── SOMBRAS ─── */
+  --sombra-suave: 0 4px 20px rgba(44, 24, 16, 0.08);
+  --sombra-media: 0 8px 30px rgba(44, 24, 16, 0.12);
+  --sombra-fuerte: 0 12px 40px rgba(44, 24, 16, 0.15);
+  --sombra-naranja: 0 8px 24px rgba(232, 114, 28, 0.30);
+
+  /* ─── RADIUS ─── */
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-pill: 999px;
+
+  /* ─── TRANSICIONES ─── */
+  --transicion: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* ─── TIPOGRAFÍAS ─── */
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Nunito', sans-serif;
+}
+
+/* ────────────────────────────────────────────
+   RESET & BASE GLOBAL
+   ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background:  var(--crema);
+  color:       var(--marron);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ─── COLOR DE SELECCIÓN ─── */
+::selection {
+  background: var(--naranja-claro);
+  color: var(--marron);
+}
+
+/* ────────────────────────────────────────────
+   UTILIDADES TIPOGRÁFICAS
+   ──────────────────────────────────────────── */
+
+/* H1 Hero */
+.heading-hero {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* H2 Secciones */
+.heading-section {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* H3 Cards */
+.heading-card {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.2;
+}
+
+/* Body text */
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.6;
+}
+
+/* Caption / labels */
+.text-caption {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Naranja destacado en texto */
+.text-naranja {
+  color: var(--naranja-marca);
+}
+
+/* ─── UTILIDADES ─── */
+.text-center { text-align: center; }
+.hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}

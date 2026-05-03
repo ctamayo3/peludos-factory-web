@@ -1,0 +1,357 @@
+/* ============================================
+   PELUDOS FACTORY — responsive.css
+   Mobile-first. Breakpoints: 768px, 1024px
+   ============================================ */
+
+/* ────────────────────────────────────────────
+   MOBILE BASE (≤ 767px)
+   ──────────────────────────────────────────── */
+
+/* Contenedor */
+.container {
+  padding-inline: 20px;
+}
+
+/* Tipografía reducida en mobile ya está cubierta con clamp() en variables.css */
+
+/* Navbar */
+.navbar-menu {
+  display: none;
+}
+
+.navbar-cta {
+  display: none;
+}
+
+.navbar-hamburger {
+  display: flex;
+}
+
+/* Secciones */
+.section {
+  padding-block: 60px;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-header p {
+  font-size: 16px;
+}
+
+/* Botones */
+.btn-mobile-full {
+  width: 100%;
+}
+
+/* Hero */
+#hero .container {
+  flex-direction: column;
+  gap: 48px;
+}
+
+.hero-content {
+  order: 2;
+}
+
+.hero-visual {
+  order: 1;
+  max-width: 100%;
+}
+
+.hero-btn-group {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-btn-group .btn {
+  width: 100%;
+}
+
+/* Beneficios */
+.benefits-grid {
+  grid-template-columns: repeat(2, 1fr);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.benefit-item {
+  border-right: none;
+  border-bottom: 1px solid rgba(44, 24, 16, 0.1);
+  padding: 16px;
+}
+
+.benefit-item:nth-child(odd) {
+  border-right: 1px solid rgba(44, 24, 16, 0.1);
+}
+
+/* Productos — 1 columna */
+.products-grid {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Pasos — 1 columna */
+.steps-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.steps-connector {
+  display: none;
+}
+
+/* Configurador */
+.configurador-layout {
+  flex-direction: column-reverse;
+  gap: 32px;
+}
+
+.resumen-card {
+  position: static;
+}
+
+/* Sticker */
+.sticker-rotatorio {
+  width: 90px;
+  height: 90px;
+  font-size: 11px;
+  bottom: -20px;
+  right: -10px;
+}
+
+/* Paws */
+.paw-float {
+  font-size: 22px;
+}
+
+/* Touch targets mínimo 44×44px */
+.navbar-link,
+.drawer-link,
+.btn {
+  min-height: 44px;
+}
+
+.radio-pill label {
+  min-height: 44px;
+  padding-block: 12px;
+}
+
+/* ────────────────────────────────────────────
+   TABLET (≥ 768px)
+   ──────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 32px;
+  }
+
+  /* Productos — 2 columnas en tablet */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  /* Pasos — 2×2 en tablet */
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .steps-connector {
+    display: none;
+  }
+
+  /* Beneficios — fila completa */
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+    overflow-x: visible;
+  }
+
+  .benefit-item {
+    border-bottom: none;
+    border-right: 1px solid rgba(44, 24, 16, 0.1);
+  }
+
+  .benefit-item:last-child {
+    border-right: none;
+  }
+
+  /* Hero */
+  #hero .container {
+    flex-direction: row;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-content {
+    order: 1;
+    flex: 1;
+  }
+
+  .hero-visual {
+    order: 2;
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .hero-btn-group {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .hero-btn-group .btn {
+    width: auto;
+  }
+
+  /* Configurador en 2 col */
+  .configurador-layout {
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .configurador-form {
+    flex: 3;
+  }
+
+  .configurador-resumen {
+    flex: 2;
+    min-width: 280px;
+  }
+
+  .resumen-card {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+/* ────────────────────────────────────────────
+   DESKTOP (≥ 1024px)
+   ──────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 40px;
+  }
+
+  /* Mostrar navbar desktop */
+  .navbar-menu {
+    display: flex;
+  }
+
+  .navbar-cta {
+    display: flex;
+  }
+
+  .navbar-hamburger {
+    display: none;
+  }
+
+  /* Secciones */
+  .section {
+    padding-block: 100px;
+  }
+
+  .section-header {
+    margin-bottom: 64px;
+  }
+
+  /* Productos — grid 2×2 */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  /* Pasos — 4 columnas */
+  .steps-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .steps-connector {
+    display: block;
+  }
+
+  /* Beneficios */
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Configurador — 40/60 */
+  .configurador-resumen {
+    flex: 0 0 360px;
+  }
+
+  .configurador-form {
+    flex: 1;
+  }
+}
+
+/* ────────────────────────────────────────────
+   UTILIDADES RESPONSIVE
+   ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 768px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* ────────────────────────────────────────────
+   SCROLLBAR PERSONALIZADO (webkit)
+   ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--crema-oscuro);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--naranja-claro);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--naranja-marca);
+}
+
+/* ────────────────────────────────────────────
+   NUEVAS SECCIONES — MOBILE BASE
+   ──────────────────────────────────────────── */
+
+/* Galería — 2 columnas en mobile */
+.galeria-grid { columns: 2; column-gap: 12px; }
+
+/* Testimonios — 1 card por pantalla en mobile */
+.testimonio-card { flex: 0 0 85vw; }
+
+/* Footer — 1 columna en mobile */
+.footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+/* CTA — padding reducido */
+.cta-final { padding-block: 70px; }
+
+/* Popup — padding reducido */
+.popup-modal { padding: 40px 24px 32px; }
+.popup-title { font-size: 24px; }
+
+/* ────────────────────────────────────────────
+   NUEVAS SECCIONES — TABLET (≥ 768px)
+   ──────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .galeria-grid { columns: 3; }
+  .testimonio-card { flex: 0 0 calc(50% - 12px); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+}
+
+/* ────────────────────────────────────────────
+   NUEVAS SECCIONES — DESKTOP (≥ 1024px)
+   ──────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .galeria-grid { columns: 4; }
+  .testimonio-card { flex: 0 0 calc(33.33% - 16px); }
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 48px; }
+  .cta-final { padding-block: 100px; }
+}

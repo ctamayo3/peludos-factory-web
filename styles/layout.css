@@ -1,0 +1,275 @@
+/* ============================================
+   PELUDOS FACTORY — layout.css
+   Contenedor, navbar, secciones, footer base
+   ============================================ */
+
+/* ────────────────────────────────────────────
+   CONTENEDOR GENERAL
+   ──────────────────────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 40px;
+}
+
+/* ────────────────────────────────────────────
+   NAVBAR
+   ──────────────────────────────────────────── */
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 246, 241, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(44, 24, 16, 0.06);
+  transition: padding var(--transicion), box-shadow var(--transicion);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px;
+  gap: 24px;
+  transition: padding var(--transicion);
+}
+
+/* Estado scrolled */
+#navbar.scrolled .navbar-inner {
+  padding-block: 10px;
+}
+
+#navbar.scrolled {
+  box-shadow: var(--sombra-suave);
+}
+
+/* ─── LOGO ─── */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo-icon {
+  font-size: 26px;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar-logo:hover .navbar-logo-icon {
+  transform: rotate(15deg);
+}
+
+.navbar-logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--naranja-marca);
+  letter-spacing: -0.01em;
+}
+
+/* ─── MENÚ DESKTOP ─── */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-link {
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--marron-medio);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transicion);
+  white-space: nowrap;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--naranja-marca);
+  border-radius: var(--radius-pill);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transicion);
+}
+
+.navbar-link:hover {
+  color: var(--naranja-marca);
+}
+
+.navbar-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─── NAVBAR CTA ─── */
+.navbar-cta {
+  flex-shrink: 0;
+}
+
+/* ─── HAMBURGUESA ─── */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transicion);
+  flex-shrink: 0;
+}
+
+.navbar-hamburger:hover {
+  background: var(--crema-oscuro);
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background: var(--marron);
+  border-radius: var(--radius-pill);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.25s ease;
+}
+
+/* Estado abierto hamburguesa */
+.navbar-hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.navbar-hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar-hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ─── DRAWER MOBILE ─── */
+.navbar-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(320px, 85vw);
+  height: 100dvh;
+  background: var(--crema);
+  z-index: 2000;
+  padding: 80px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: -8px 0 40px rgba(44, 24, 16, 0.15);
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar-drawer.open {
+  right: 0;
+}
+
+.drawer-link {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--marron);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--crema-oscuro);
+  transition: color var(--transicion), padding-left var(--transicion);
+}
+
+.drawer-link:hover {
+  color: var(--naranja-marca);
+  padding-left: 8px;
+}
+
+.drawer-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--marron-claro);
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.drawer-close:hover {
+  background: var(--crema-oscuro);
+  color: var(--marron);
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 24, 16, 0.4);
+  z-index: 1999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ────────────────────────────────────────────
+   SECCIONES GENERALES
+   ──────────────────────────────────────────── */
+.section {
+  padding-block: 100px;
+}
+
+.section--crema {
+  background: var(--crema);
+}
+
+.section--crema-oscuro {
+  background: var(--crema-oscuro);
+}
+
+/* Encabezado de sección reutilizable */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-header .heading-section {
+  margin-bottom: 16px;
+  color: var(--marron);
+}
+
+.section-header p {
+  font-size: 18px;
+  color: var(--marron-claro);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* ────────────────────────────────────────────
+   FOOTER BASE (placeholder para prompt 2)
+   ──────────────────────────────────────────── */
+#footer {
+  background: var(--marron);
+  color: rgba(250, 246, 241, 0.7);
+  padding-block: 60px 40px;
+}
