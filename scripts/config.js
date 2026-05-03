@@ -8,7 +8,7 @@
 // INSTRUCCIÓN: Reemplaza estos placeholders con
 // las claves reales de tu proyecto en Supabase.
 const SUPABASE_URL = 'https://difkoncxjyquvecyzkrt.supabase.co';
-const SUPABASE_ANON_KEY = '';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpZmtvbmN4anlxdXZlY3l6a3J0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3Njk3NjUsImV4cCI6MjA5MzM0NTc2NX0.pzhWvGLwB4IfE_QQbRQp5ndZEx-jIGnSChFlvhdduf0';
 
 // ─── WHATSAPP ─────────────────────────────────
 const WHATSAPP_NUMERO = '51991858390';
